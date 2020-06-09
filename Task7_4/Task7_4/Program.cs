@@ -10,33 +10,35 @@ namespace Task7_4
     {
         static void Main(string[] args)
         {
-            int[] vector = { 0, 0, 0, 0, 0, 0, 0, 0 };
+            const int argsCount = 3;            
+            int[] vector = new int[(int) Math.Pow(2, argsCount)];//всего возможных комбинаций аргументов у функции 2^n
             int count = 1;
-            int count2 = 1;
-            for (int i = 0; i < 256; i++)
+            Console.WriteLine("Все немонотонные Булевы функции от {0} аргументов (заданы вектором):\n", argsCount);
+            for (int i = 0; i < Math.Pow(2, Math.Pow(2, argsCount)); i++)//всего возможных функций будет 2^(2^n)
             {
                 string vectorStr = "";
                 for (int j = 0; j < vector.Length; j++)
                     vectorStr += vector[j].ToString();
 
-                if (!isMonotone(vector))
-                {
-                    Console.Write($"{count++}) ");
-                    PrintVector(vector);
-                }
-
                 if (!isMonotone(vectorStr))
                 {
-                    Console.WriteLine($"{count2++}) " + vectorStr);
+                    Console.WriteLine($"{count++}) " + vectorStr);
                 }
 
-                Console.WriteLine();
+                //if (!isMonotone(vector))
+                //{
+                //    Console.Write($"{count++}) ");
+                //    PrintVector(vector);
+                //}
+
                 NextVector(ref vector);                              
             }
 
             Console.ReadKey();
 
         }
+
+        //универсальный метод определения монотонности функции от n аргументов (сравниваются наборы значений).
         static bool isMonotone(string vectorStr)
         {
             string a = vectorStr.Substring(0, vectorStr.Length / 2);
@@ -52,6 +54,24 @@ namespace Task7_4
             return true;
         }
 
+        static void NextVector(ref int[] vector)
+        {
+            vector[vector.Length - 1]++;
+
+            for (int i = vector.Length - 1; i >= 1; i--)
+            {
+                if (vector[i] == 2)
+                {
+                    vector[i] = 0;
+                    vector[i - 1]++;
+                }
+                else
+                    break;
+            }
+        }
+
+        //(не используется)
+        //метод решения для конкретного условия n = 3 (в основе лежит решение с помощью трехмерного куба)
         static bool isMonotone(int[] vector)
         {
             if (vector[0] == 1 &&
@@ -82,34 +102,7 @@ namespace Task7_4
             return true;
         }
 
-        static void NextVector(ref int[] vector)
-        {
-            //vector[0]++;
-
-            //for (int i = 0; i < 7; i++)
-            //{                
-            //    if (vector[i] == 2)
-            //    {
-            //        vector[i] = 0;
-            //        ++vector[i + 1];
-            //    }
-            //    else
-            //        break;
-            //}
-
-            vector[7]++;
-
-            for (int i = 7; i >= 1; i--)
-            {
-                if (vector[i] == 2)
-                {
-                    vector[i] = 0;
-                    vector[i - 1]++;
-                }
-                else
-                    break;
-            }
-        }
+        
         static void PrintVector(int[] currentVector)
         {
             for (int i = 0; i < currentVector.Length; i++)
