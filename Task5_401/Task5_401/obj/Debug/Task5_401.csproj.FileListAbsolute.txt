@@ -1,0 +1,6 @@
+D:\C#\Practice\Task5_401\Task5_401\bin\Debug\Task5_401.exe.config
+D:\C#\Practice\Task5_401\Task5_401\bin\Debug\Task5_401.exe
+D:\C#\Practice\Task5_401\Task5_401\bin\Debug\Task5_401.pdb
+D:\C#\Practice\Task5_401\Task5_401\obj\Debug\Task5_401.csprojAssemblyReference.cache
+D:\C#\Practice\Task5_401\Task5_401\obj\Debug\Task5_401.exe
+D:\C#\Practice\Task5_401\Task5_401\obj\Debug\Task5_401.pdb

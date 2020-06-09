@@ -1,0 +1,6 @@
+D:\C#\Practice\Task4_119B\Task4_119B\bin\Debug\Task4_119B.exe.config
+D:\C#\Practice\Task4_119B\Task4_119B\bin\Debug\Task4_119B.exe
+D:\C#\Practice\Task4_119B\Task4_119B\bin\Debug\Task4_119B.pdb
+D:\C#\Practice\Task4_119B\Task4_119B\obj\Debug\Task4_119B.csprojAssemblyReference.cache
+D:\C#\Practice\Task4_119B\Task4_119B\obj\Debug\Task4_119B.exe
+D:\C#\Practice\Task4_119B\Task4_119B\obj\Debug\Task4_119B.pdb

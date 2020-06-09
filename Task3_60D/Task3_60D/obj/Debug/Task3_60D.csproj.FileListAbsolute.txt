@@ -1,0 +1,12 @@
+D:\C#\Practice\Task3_60D\Task3_60D\bin\Debug\Task3_60D.exe.config
+D:\C#\Practice\Task3_60D\Task3_60D\bin\Debug\Task3_60D.exe
+D:\C#\Practice\Task3_60D\Task3_60D\bin\Debug\Task3_60D.pdb
+D:\C#\Practice\Task3_60D\Task3_60D\obj\Debug\Task3_60D.csprojAssemblyReference.cache
+D:\C#\Practice\Task3_60D\Task3_60D\obj\Debug\Task3_60D.exe
+D:\C#\Practice\Task3_60D\Task3_60D\obj\Debug\Task3_60D.pdb
+D:\C#\Practice\Task3_60D1\Task3_60D\bin\Debug\Task3_60D.exe.config
+D:\C#\Practice\Task3_60D1\Task3_60D\bin\Debug\Task3_60D.exe
+D:\C#\Practice\Task3_60D1\Task3_60D\bin\Debug\Task3_60D.pdb
+D:\C#\Practice\Task3_60D1\Task3_60D\obj\Debug\Task3_60D.csprojAssemblyReference.cache
+D:\C#\Practice\Task3_60D1\Task3_60D\obj\Debug\Task3_60D.exe
+D:\C#\Practice\Task3_60D1\Task3_60D\obj\Debug\Task3_60D.pdb

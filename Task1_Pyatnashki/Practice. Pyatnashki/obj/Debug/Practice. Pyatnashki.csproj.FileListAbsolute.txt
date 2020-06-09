@@ -1,0 +1,6 @@
+D:\C#\Practice. Pyatnashki\Practice. Pyatnashki\bin\Debug\Practice.Pyatnashki.exe.config
+D:\C#\Practice. Pyatnashki\Practice. Pyatnashki\bin\Debug\Practice.Pyatnashki.exe
+D:\C#\Practice. Pyatnashki\Practice. Pyatnashki\bin\Debug\Practice.Pyatnashki.pdb
+D:\C#\Practice. Pyatnashki\Practice. Pyatnashki\obj\Debug\Practice. Pyatnashki.csprojAssemblyReference.cache
+D:\C#\Practice. Pyatnashki\Practice. Pyatnashki\obj\Debug\Practice.Pyatnashki.exe
+D:\C#\Practice. Pyatnashki\Practice. Pyatnashki\obj\Debug\Practice.Pyatnashki.pdb

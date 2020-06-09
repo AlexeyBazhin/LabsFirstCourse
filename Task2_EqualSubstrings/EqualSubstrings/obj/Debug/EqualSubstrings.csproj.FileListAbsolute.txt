@@ -1,0 +1,12 @@
+D:\C#\Practice\EqualSubstrings\EqualSubstrings\bin\Debug\EqualSubstrings.exe.config
+D:\C#\Practice\EqualSubstrings\EqualSubstrings\bin\Debug\EqualSubstrings.exe
+D:\C#\Practice\EqualSubstrings\EqualSubstrings\bin\Debug\EqualSubstrings.pdb
+D:\C#\Practice\EqualSubstrings\EqualSubstrings\obj\Debug\EqualSubstrings.csprojAssemblyReference.cache
+D:\C#\Practice\EqualSubstrings\EqualSubstrings\obj\Debug\EqualSubstrings.exe
+D:\C#\Practice\EqualSubstrings\EqualSubstrings\obj\Debug\EqualSubstrings.pdb
+D:\C#\Practice\Task1_EqualSubstrings\EqualSubstrings\bin\Debug\EqualSubstrings.exe.config
+D:\C#\Practice\Task1_EqualSubstrings\EqualSubstrings\bin\Debug\EqualSubstrings.exe
+D:\C#\Practice\Task1_EqualSubstrings\EqualSubstrings\bin\Debug\EqualSubstrings.pdb
+D:\C#\Practice\Task1_EqualSubstrings\EqualSubstrings\obj\Debug\EqualSubstrings.csprojAssemblyReference.cache
+D:\C#\Practice\Task1_EqualSubstrings\EqualSubstrings\obj\Debug\EqualSubstrings.exe
+D:\C#\Practice\Task1_EqualSubstrings\EqualSubstrings\obj\Debug\EqualSubstrings.pdb
