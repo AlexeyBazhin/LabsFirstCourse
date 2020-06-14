@@ -44,7 +44,7 @@ namespace Task7_4
             string a = vectorStr.Substring(0, vectorStr.Length / 2);
             string b = vectorStr.Substring(vectorStr.Length / 2, vectorStr.Length / 2);
 
-            for (int i = 0; i < a.Length; i++)
+            for (int i = 0; i < a.Length; i++) //a и b всегда имеют одинаковую длину
                 if (a[i] > b[i])
                     return false;
 

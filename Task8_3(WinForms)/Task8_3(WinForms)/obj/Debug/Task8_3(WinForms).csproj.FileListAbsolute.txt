@@ -1,0 +1,9 @@
+D:\C#\Practice\Task8_3(WinForms)\Task8_3(WinForms)\bin\Debug\Task8_3(WinForms).exe.config
+D:\C#\Practice\Task8_3(WinForms)\Task8_3(WinForms)\bin\Debug\Task8_3(WinForms).exe
+D:\C#\Practice\Task8_3(WinForms)\Task8_3(WinForms)\bin\Debug\Task8_3(WinForms).pdb
+D:\C#\Practice\Task8_3(WinForms)\Task8_3(WinForms)\obj\Debug\Task8_3(WinForms).csprojAssemblyReference.cache
+D:\C#\Practice\Task8_3(WinForms)\Task8_3(WinForms)\obj\Debug\Task8_3_WinForms_.Form1.resources
+D:\C#\Practice\Task8_3(WinForms)\Task8_3(WinForms)\obj\Debug\Task8_3_WinForms_.Properties.Resources.resources
+D:\C#\Practice\Task8_3(WinForms)\Task8_3(WinForms)\obj\Debug\Task8_3(WinForms).csproj.GenerateResource.cache
+D:\C#\Practice\Task8_3(WinForms)\Task8_3(WinForms)\obj\Debug\Task8_3(WinForms).exe
+D:\C#\Practice\Task8_3(WinForms)\Task8_3(WinForms)\obj\Debug\Task8_3(WinForms).pdb
