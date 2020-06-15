@@ -22,12 +22,14 @@ namespace Task8_3_WinForms_
             DefaultItems();
         }
 
+        //очистить все данные
         private void clearMenuItem_Click(object sender, EventArgs e)
         {
             DefaultItems();
         }
 
-        private void DefaultItems()//установка начальных позиций у всех элементов управления
+        //установка начальных позиций у всех элементов управления
+        private void DefaultItems()
         {
             addRibButton.Enabled = false;
             countButton.Enabled = false;
@@ -49,7 +51,9 @@ namespace Task8_3_WinForms_
             vertexDataGridView.Rows.Clear();
             int index = 1;
             foreach (var item in vertexList)
+            {
                 vertexDataGridView.Rows.Add(index++, item);
+            }
         }
 
         private void UpdateRibTable()
@@ -57,7 +61,9 @@ namespace Task8_3_WinForms_
             ribDataGridView.Rows.Clear();
             int index = 1;
             foreach (var item in ribList)
+            {
                 ribDataGridView.Rows.Add(index++, $"({item.beg};{item.end})");
+            }
         }
 
         //
@@ -72,7 +78,9 @@ namespace Task8_3_WinForms_
                 UpdateVertexTable();
             }
             else
-                MessageBox.Show("Ошибка! Данная вершина уже была добавлена.", "Добавление вершины");            
+            {
+                MessageBox.Show("Ошибка! Данная вершина уже была добавлена.", "Добавление вершины");
+            }
 
             comboBox1.Items.Add(vertex);
             comboBox2.Items.Add(vertex);
@@ -104,10 +112,14 @@ namespace Task8_3_WinForms_
                     UpdateRibTable();
                 }
                 else
+                {
                     MessageBox.Show("Ошибка! Данное ребро уже было добавлено.", "Добавление ребра");
+                }
             }
             else
+            {
                 MessageBox.Show("Ошибка! Вы не можете добавить ребро с одинаковыми концами.", "Добавление ребра");
+            }
         }
 
         //
@@ -159,7 +171,9 @@ namespace Task8_3_WinForms_
                 }
 
                 if (isSingleVertex)
+                {
                     singleVertex++;
+                }
             }
         }
 
@@ -170,16 +184,23 @@ namespace Task8_3_WinForms_
         {
             bool[,] isPassed = new bool[graph.GetLength(0), graph.GetLength(0)];
             int count = 0;
+            bool isCompanent = false;
 
             for (int i = 0; i < graph.GetLength(0); i++)
             {
+                isCompanent = false;
                 for (int j = 0; j < graph.GetLength(1); j++)
                 {
                     if (graph[i, j] == true && isPassed[i, j] == false)
                     {
                         FillCompanents(graph, ref isPassed, i, j);
-                        count++;
+                        isCompanent = true;
                     }
+                }
+
+                if (isCompanent)
+                {
+                    count++;
                 }
             }
             return count;
@@ -194,8 +215,12 @@ namespace Task8_3_WinForms_
             isPassed[j, i] = true;
 
             for (int j1 = 0; j1 < graph.GetLength(0); j1++)
+            {
                 if (graph[j, j1] == true && isPassed[j, j1] == false)
+                {
                     FillCompanents(graph, ref isPassed, j, j1);
+                }
+            }
         }
 
         //
@@ -205,7 +230,9 @@ namespace Task8_3_WinForms_
         {
             graphTextBox.Text += "  ";
             for (int i = 0; i < graph.GetLength(0); i++)
+            {
                 graphTextBox.Text += vertexList[i] + " ";
+            }
 
             graphTextBox.Text += "\r\n";
 
@@ -215,9 +242,13 @@ namespace Task8_3_WinForms_
                 for (int j = 0; j < graph.GetLength(1); j++)
                 {
                     if (graph[i, j] == false)
+                    {
                         graphTextBox.Text += 0 + " ";
+                    }
                     else
+                    {
                         graphTextBox.Text += 1 + " ";
+                    }
                 }
                 graphTextBox.Text += "\r\n";
             }
@@ -232,7 +263,9 @@ namespace Task8_3_WinForms_
             int indexOfDeletedRow = vertexDataGridView.SelectedCells[0].RowIndex;
 
             if (indexOfDeletedRow >= vertexList.Count)
+            {
                 return;
+            }
 
             if (ribList.Count != 0)
             {
@@ -264,7 +297,9 @@ namespace Task8_3_WinForms_
             int indexOfDeletedRow = ribDataGridView.SelectedCells[0].RowIndex;
 
             if (indexOfDeletedRow >= ribList.Count)
+            {
                 return;
+            }
 
             ribList.RemoveAt(indexOfDeletedRow);
             UpdateRibTable();
@@ -383,6 +418,7 @@ namespace Task8_3_WinForms_
 
                 case 8://много вершин, много ребер, много компанент
                     {
+                        //всего n вершин, из половины мы делаем одну компаненту, из n-2 и n-1 вершин тоже делаем компаненту (n-ая вершина остается одиночной)
                         MessageBox.Show("много вершин, много ребер, много компанент", $"Генератор тестов. Тест №{currentTest}");
                         GenerateVertexNRibs(5, 10, -1);
                         ribList.Add(new Rib(vertexList[vertexList.Count - 2], vertexList[vertexList.Count - 3]));
@@ -392,17 +428,21 @@ namespace Task8_3_WinForms_
                     break;
             }
         }
-
-        private void GenerateVertexNRibs(int min, int max, int removedVertexCount)
+        //псевдослучайная генерация ребер и вершин
+        private void GenerateVertexNRibs(int min, int max, int removedVertexCount)//removedVertexCount - сколько вершин мы отбрасываем, оставляем одиночными
         {
             Random rnd = new Random();
             int vertexCount = rnd.Next(min, max);
 
-            if (removedVertexCount == -1)
-                removedVertexCount = (int)Math.Ceiling((Double)vertexCount / 2.0);
+            if (removedVertexCount == -1)//небольшой костыль для 8 теста
+            {
+                removedVertexCount = (int)Math.Ceiling((Double)vertexCount / 2.0);//Отделяем половину вершин графа
+            }
 
             for (int i = 0; i < vertexCount; i++)
+            {
                 vertexList.Add((i + 1).ToString());
+            }
 
             int ribCount = rnd.Next(vertexCount - removedVertexCount - 1, 
                                    ((vertexCount - removedVertexCount) * (vertexCount - removedVertexCount - 1)) / 2);
@@ -417,13 +457,20 @@ namespace Task8_3_WinForms_
                 for (int j = 0; j < vertexCount - removedVertexCount; j++)
                 {
                     if (i != j && !ribList.Contains(new Rib(vertexList[i], vertexList[j])))
+                    {
                         ribList.Add(new Rib(vertexList[i], vertexList[j]));
+                    }
 
                     if (ribList.Count == ribCount)
+                    {
                         break;
+                    }
                 }
+
                 if (ribList.Count == ribCount)
+                {
                     break;
+                }
             }
 
         }
@@ -431,7 +478,9 @@ namespace Task8_3_WinForms_
         private void testNextButton_Click(object sender, EventArgs e)
         {
             if (currentTest == 9)
+            {
                 currentTest = 0;
+            }
             DefaultItems();
             TestGenerator();
         }

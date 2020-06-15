@@ -18,7 +18,7 @@ namespace Task9_5
 
         public MyLinkedList(int n)
         {
-            if (n != 1)
+            if (n != 1 && n != 0)
             {
                 MyLinkedList prevList = new MyLinkedList(n - 1);
                 prevList.Add(n);
@@ -27,9 +27,12 @@ namespace Task9_5
                 Count = prevList.Count;
             }
             else
+            {
                 this.Add(n);
+            }
         }
 
+        //добавить элемент в коллекцию
         public void Add(int n)
         {
             Point point = new Point(n);
@@ -39,11 +42,14 @@ namespace Task9_5
                 head = point;
             }
             else
+            {
                 tail.Next = point;
+            }
             tail = point;
             Count++;
         }
 
+        //удалить элемент из коллекции
         public void Remove(int n, Point current, Point previous)
         {
             if (current != null && !current.Equals(new Point(n)))
@@ -71,11 +77,14 @@ namespace Task9_5
             {
                 previous.Next = current.Next;
                 if (current.Next == null)
+                {
                     tail = previous;
+                }
             }
             Count--;
         }
 
+        //определить, содержится ли объект в коллекции
         public bool Contains(int n, Point current)
         {
             if (current == null)

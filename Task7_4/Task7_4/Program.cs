@@ -54,6 +54,7 @@ namespace Task7_4
             return true;
         }
 
+        //получение следующего вектора
         static void NextVector(ref int[] vector)
         {
             vector[vector.Length - 1]++;
@@ -102,7 +103,7 @@ namespace Task7_4
             return true;
         }
 
-        
+        //печать массива, в котором хранится вектор. В частности, отпал за ненадобностью
         static void PrintVector(int[] currentVector)
         {
             for (int i = 0; i < currentVector.Length; i++)

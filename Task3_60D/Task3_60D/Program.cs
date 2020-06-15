@@ -34,6 +34,8 @@ namespace Task3_60D
             }while(Console.ReadKey().KeyChar != ' ');
             
         }
+
+        //ввод вещественного числа
         static double doubleInput(string info)
         {
             double n;

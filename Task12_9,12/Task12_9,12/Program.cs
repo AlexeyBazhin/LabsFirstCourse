@@ -52,6 +52,7 @@ namespace Task12_9_12
             Console.ReadKey();
         }
 
+        //сортировка простым выбором
         static void SelectionSort(int[] arr, out ulong comparisons, out ulong swaps)
         {
             int min, temp;
@@ -81,6 +82,7 @@ namespace Task12_9_12
             }
         }
 
+        //Алгоритм быстрой сортировки
         static void QuickSort(ref int[] arr, int left, int right, ref ulong swaps, ref ulong comparisons)
         {
             int i = left, j = right;            
@@ -102,9 +104,19 @@ namespace Task12_9_12
                 comparisons++;
             } while (i <= j);
 
-            if (left < j) QuickSort(ref arr, left, j, ref swaps, ref comparisons);
-            if (right > i) QuickSort(ref arr, i, right, ref swaps, ref comparisons);
+
+            if (left < j)
+            {
+                QuickSort(ref arr, left, j, ref swaps, ref comparisons);
+            }
+
+            if (right > i)
+            {
+                QuickSort(ref arr, i, right, ref swaps, ref comparisons);
+            }
         }
+
+        //ввод целого числа
         static int IntInput(string info, int leftBorder, int rightBorder)
         {
             int n;

@@ -8,22 +8,25 @@ namespace Task10_2
 {
     class Element: IComparable
     {
-        public int degree;
-        public int coeff;
+        public int degree;//показатель степени
+        public int coeff;//коэффициент при одночлене
         public Element()
         {
             this.degree = 0;
             this.coeff = 0;
         }
+
         public Element(int degree, int coeff)
         {
             this.degree = degree;
             this.coeff = coeff;
         }
+
         public override string ToString()
         {
             return $"{degree} {coeff}";
         }
+
         public int CompareTo(object obj)
         {
             Element point = (Element)obj;
@@ -37,6 +40,7 @@ namespace Task10_2
             Element point = (Element)obj;
             return (point.coeff == this.coeff) && (point.degree == this.degree);
         }
+
         public override int GetHashCode()
         {
             return degree + coeff;

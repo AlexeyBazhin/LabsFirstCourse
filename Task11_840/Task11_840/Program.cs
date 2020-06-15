@@ -11,8 +11,10 @@ namespace Task11_840
         static void Main(string[] args)
         {
             bool exit = false;
-            bool isCorrectWord = false;
+            bool isCorrectWord = true;
             char[] alphabet = new char[2];
+            alphabet[0] = '0';
+            alphabet[1] = '1';
             string word = "";
             do
             {
@@ -22,39 +24,41 @@ namespace Task11_840
                 switch(Console.ReadKey().KeyChar)
                 {
                     case '1':
-                        {
-                            Console.WriteLine("\n\nВведите последовательность: ");
-                            word = Console.ReadLine();
-                            isCorrectWord = CollectAlphabet(word, ref alphabet);
-                            if (!isCorrectWord)
-                                Console.WriteLine("Последовательность состоит не из бинарного алфавита!");
-                            break;
-                        }
+                        Console.WriteLine("\n\nВведите последовательность: ");
+                        word = Console.ReadLine();
+                        foreach (var item in word)
+                            if (item != alphabet[0] && item != alphabet[1])
+                                isCorrectWord = false;
+                        isCorrectWord = isCorrectWord && (word.Length > 0);
+                        if (!isCorrectWord)
+                            Console.WriteLine("Последовательность состоит не из бинарного алфавита!");
+                        break;
+
                     case '2':
+                        if (isCorrectWord)
                         {
-                            if (isCorrectWord)
-                            {
-                                Console.WriteLine("\n\nИзначальная последовательность:\n" + word);
-                                word = Encrypt(word, alphabet);
-                                Console.WriteLine("\nЗашифрованная последовательность:\n" + word);
-                            }
-                            else
-                                Console.WriteLine("\n\nСначала введите бинарную последовательность!");
-                            break;
+                            Console.WriteLine("\n\nИзначальная последовательность:\n" + word);
+                            word = Encrypt(word, alphabet);
+                            Console.WriteLine("\nЗашифрованная последовательность:\n" + word);
                         }
+                        else
+                        {
+                            Console.WriteLine("\n\nСначала введите бинарную последовательность!");
+                        }
+                        break;
 
                     case '3':
+                        if (isCorrectWord)
                         {
-                            if (isCorrectWord)
-                            {
-                                Console.WriteLine("\n\nЗашифрованная последовательность:\n" + word);
-                                word = Decrypt(word, alphabet);
-                                Console.WriteLine("\nРасшифрованная последовательность:\n" + word);
-                            }
-                            else
-                                Console.WriteLine("\n\nСначала введите бинарную последовательность!");
-                            break;
+                            Console.WriteLine("\n\nЗашифрованная последовательность:\n" + word);
+                            word = Decrypt(word, alphabet);
+                            Console.WriteLine("\nРасшифрованная последовательность:\n" + word);
                         }
+                        else
+                        {
+                            Console.WriteLine("\n\nСначала введите бинарную последовательность!");
+                        }
+                        break;
 
                     case '4':
                         Console.Clear();
@@ -71,30 +75,9 @@ namespace Task11_840
             } while (!exit);
         }
 
-        static bool CollectAlphabet(string word, ref char[] alphabet)
-        {
-            if (word.Length == 0)
-                return false;
-            
-            alphabet[0] = word[0];
-            
-            for (int i = 1; i < word.Length; i++)
-            {                
-                if (word[i] != alphabet[0] && word[i] != alphabet[1])
-                {
-                    if (alphabet[1] == '\0')
-                        alphabet[1] = word[i];
-                    else                      
-                        return false;
-                }
-            }
-
-            if (alphabet[1] == '\0')
-                return false;
-
-            return true;
-        }
-
+        //
+        //Зашифровать последовательность
+        //
         static string Encrypt(string word, char[] alphabet)
         {
             string encryptWord = word[0].ToString();
@@ -109,6 +92,9 @@ namespace Task11_840
 
             return encryptWord;
         }
+        //
+        //Расшифровка последовательности
+        //
         static string Decrypt(string word, char[] alphabet)
         {
             string decryptWord = word[0].ToString();
@@ -127,7 +113,9 @@ namespace Task11_840
             }
             return decryptWord;
         }
-
+        //
+        //Печать пользовательского меню
+        //
         static void PrintMenu()
         {
             Console.WriteLine("1) Ввести новую последовательность");

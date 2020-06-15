@@ -52,13 +52,20 @@ namespace Task10_2
             }
 
             finalPoly.Sort();
-
-            foreach (var item in finalPoly)
-                outLine += item.ToString() + "\n";
+            finalPoly.RemoveAll(x => x.coeff == 0);
+            if (finalPoly.Count != 0)
+            {
+                foreach (var item in finalPoly)
+                    outLine += item.ToString() + "\n";
+            }
+            else
+                outLine = "Сумма полиномов равна 0";
 
             Output(outLine);
         }
-
+        //
+        //Чтение полинома из файла
+        //
         static void Input(string filename, ref List<Element> poly, ref string outLine, ref bool falseInput)
         {
             string inLine;
@@ -118,7 +125,9 @@ namespace Task10_2
                 }
             }
         }
-
+        //
+        //Вывод информации в файл
+        //
         static void Output(string outLine)
         {
             using (StreamWriter sw = new StreamWriter("OUTPUT.TXT"))

@@ -27,25 +27,41 @@ namespace Task6_2
                 n = IntInput("кол-во элементов N", 4, Int32.MaxValue);
 
                 isGreaterM = false;
-                isZero = false;
+                if (sequence[2] != 0)
+                {
+                    isZero = false;
+                    GetSequence(ref sequence, n - 1);
+                }
+                else
+                {
+                    isZero = true;
+                }
 
-                GetSequence(ref sequence, n - 1);
+
                 //GetSequence(ref sequence, 3); отброшенный вариант реализации
 
                 for (int i = 0; i < sequence.Count; i++)
+                {
                     Console.WriteLine($"{i + 1}) " + sequence[i]);
+                }
 
                 Console.WriteLine("\nПричина остановки: ");
 
                 if (sequence.Count == n)
+                {
                     Console.WriteLine("\nВ последовательности N элементов.");
+                }
                 else
                 {
                     if (isGreaterM)
+                    {
                         Console.WriteLine("Последний элемент больше M.");
+                    }
 
                     if (isZero)
+                    {
                         Console.WriteLine("\nНевозможно вычислить следующий элемент, так как текущий равен нулю.");
+                    }
                 }
 
                 Console.Write("\nНажмите ПРОБЕЛ, если желаете выйти из программы, либо другую клавишу, если хотите провести вычисления еще раз...");
@@ -71,7 +87,9 @@ namespace Task6_2
 
         //    GetSequence(ref sequence, i + 1);
         //}
+        
 
+        //Рекурсивное получение последовательности
         static double GetSequence(ref List<double> sequence, int i)
 
         {
@@ -99,6 +117,7 @@ namespace Task6_2
             return currentMember;
         }
 
+        //ввод вещественного числа
         static double DoubleInput(string info)
         {
             double n;
@@ -110,6 +129,8 @@ namespace Task6_2
             }
             return n;
         }
+
+        //ввод целого числа
         static int IntInput(string info, int leftBorder, int rightBorder)
         {
             int n;

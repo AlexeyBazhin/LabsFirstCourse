@@ -30,13 +30,15 @@ namespace Task4_119B
                 Console.Write("\nНажмите ПРОБЕЛ, если желаете выйти из программы, либо другую клавишу, если хотите провести вычисления еще раз...");                
             } while (Console.ReadKey().KeyChar != ' ');
         }
+        
+        //ввод вещественного числа большего 0
         static double doubleInput(string info)
         {
             double n;
             Console.Write($"Введите {info}: ");
-            while (!Double.TryParse(Console.ReadLine(), out n))
+            while (!Double.TryParse(Console.ReadLine(), out n) || n < 0)
             {
-                Console.WriteLine($"Ошибка! Введите действительное число в диапазоне от {Double.MinValue} до {Double.MaxValue}.");
+                Console.WriteLine($"Ошибка! Введите действительное число в диапазоне от {0} до {Double.MaxValue}.");
                 Console.Write($"Введите {info}: ");
             }
             return n;
