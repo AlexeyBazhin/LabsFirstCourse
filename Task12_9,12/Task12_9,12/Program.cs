@@ -90,9 +90,18 @@ namespace Task12_9_12
 
             do
             {
-                while (arr[i] < pivot) i++;
-                while (arr[j] > pivot) j--;
-                if (i <= j)
+                while (arr[i] < pivot)
+                {
+                    comparisons++;
+                    i++;
+                }
+                while (arr[j] > pivot)
+                {
+                    comparisons++;
+                    j--;
+                }
+
+                if (i < j)
                 {
                     int temp = arr[i];
                     arr[i] = arr[j];
@@ -101,9 +110,8 @@ namespace Task12_9_12
                     j--;
                     swaps++;
                 }
-                comparisons++;
+                
             } while (i <= j);
-
 
             if (left < j)
             {
@@ -114,6 +122,7 @@ namespace Task12_9_12
             {
                 QuickSort(ref arr, i, right, ref swaps, ref comparisons);
             }
+
         }
 
         //ввод целого числа
