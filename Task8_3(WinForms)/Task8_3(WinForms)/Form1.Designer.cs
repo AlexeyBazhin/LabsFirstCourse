@@ -47,12 +47,12 @@
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteVertexMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteRibMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.запуститьГенераторТестовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.testNextButton = new System.Windows.Forms.Button();
             this.testStopButton = new System.Windows.Forms.Button();
-            this.запуститьГенераторТестовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.vertexDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -162,6 +162,7 @@
             // comboBox2
             // 
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.comboBox2.Enabled = false;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(377, 393);
@@ -248,6 +249,13 @@
             this.deleteRibMenuItem.Text = "Выделенное ребро";
             this.deleteRibMenuItem.Click += new System.EventHandler(this.deleteRibMenuItem_Click);
             // 
+            // запуститьГенераторТестовToolStripMenuItem
+            // 
+            this.запуститьГенераторТестовToolStripMenuItem.Name = "запуститьГенераторТестовToolStripMenuItem";
+            this.запуститьГенераторТестовToolStripMenuItem.Size = new System.Drawing.Size(171, 20);
+            this.запуститьГенераторТестовToolStripMenuItem.Text = "Запустить генератор тестов";
+            this.запуститьГенераторТестовToolStripMenuItem.Click += new System.EventHandler(this.запуститьГенераторТестовToolStripMenuItem_Click);
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -308,13 +316,6 @@
             this.testStopButton.UseVisualStyleBackColor = false;
             this.testStopButton.Visible = false;
             this.testStopButton.Click += new System.EventHandler(this.testStopButton_Click);
-            // 
-            // запуститьГенераторТестовToolStripMenuItem
-            // 
-            this.запуститьГенераторТестовToolStripMenuItem.Name = "запуститьГенераторТестовToolStripMenuItem";
-            this.запуститьГенераторТестовToolStripMenuItem.Size = new System.Drawing.Size(171, 20);
-            this.запуститьГенераторТестовToolStripMenuItem.Text = "Запустить генератор тестов";
-            this.запуститьГенераторТестовToolStripMenuItem.Click += new System.EventHandler(this.запуститьГенераторТестовToolStripMenuItem_Click);
             // 
             // Form1
             // 

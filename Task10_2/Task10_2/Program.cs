@@ -13,8 +13,8 @@ namespace Task10_2
         {
             string outLine = "";
             bool falseInput = false;
-            List<Element> firstPoly = new List<Element>();
-            List<Element> secondPoly = new List<Element>();
+            MyList<Element> firstPoly = new MyList<Element>();
+            MyList<Element> secondPoly = new MyList<Element>();
 
             Input("FirstPolynomial.TXT", ref firstPoly, ref outLine, ref falseInput);
 
@@ -32,41 +32,46 @@ namespace Task10_2
                 return;
             }
 
-            firstPoly.Sort();
-            secondPoly.Sort();
+            MyList<Element> finalPoly = new MyList<Element>();
 
-            List<Element> finalPoly = new List<Element>();
-            foreach (var item in firstPoly)
-                finalPoly.Add(item);
+            foreach (var firstItem in firstPoly)
+            {
+                int index;
+                if (secondPoly.Contains(firstItem, out index))
+                {
+                    finalPoly.Add(new Element(firstItem.degree, firstItem.coeff + secondPoly[index].Data.coeff));
+                    secondPoly.Remove(secondPoly[index].Data);
+                }
+                else
+                {
+                    finalPoly.Add(firstItem);
+                }
+            }
 
             foreach (var item in secondPoly)
             {
-                var element = firstPoly.Where(x => x.degree == item.degree);
-                if (element.Count() != 0)
-                {
-                    Element elem = (Element)element.First();
-                    element.First().coeff += item.coeff;
-                }
-                else
-                    finalPoly.Add(item);                
+                finalPoly.Add(item);
             }
 
-            finalPoly.Sort();
-            finalPoly.RemoveAll(x => x.coeff == 0);
-            if (finalPoly.Count != 0)
+            foreach (var item in finalPoly)
             {
-                foreach (var item in finalPoly)
+                if (item.coeff != 0)
+                {
                     outLine += item.ToString() + "\n";
+                }
             }
-            else
+
+            if (outLine == "")
+            {
                 outLine = "Сумма полиномов равна 0";
+            }
 
             Output(outLine);
         }
         //
         //Чтение полинома из файла
         //
-        static void Input(string filename, ref List<Element> poly, ref string outLine, ref bool falseInput)
+        static void Input(string filename, ref MyList<Element> poly, ref string outLine, ref bool falseInput)
         {
             string inLine;
 
@@ -96,7 +101,9 @@ namespace Task10_2
                                 }
 
                                 if (!degreeRepeat)
+                                {
                                     poly.Add(new Element(degree, coeff));
+                                }
                                 else
                                 {
                                     outLine = "Ошибка ввода! Одночлен с таким показателем степени уже был введен!";

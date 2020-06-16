@@ -38,7 +38,7 @@ namespace Task10_2
         public override bool Equals(object obj)
         {
             Element point = (Element)obj;
-            return (point.coeff == this.coeff) && (point.degree == this.degree);
+            return point.degree == this.degree;
         }
 
         public override int GetHashCode()

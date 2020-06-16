@@ -36,7 +36,7 @@ namespace Task6_2
                 if (sequence[2] != 0)
                 {
                     isZero = false;
-                    GetSequence(sequence, 4);
+                    GetSequence(ref sequence, n);
                 }
                 else
                 {
@@ -44,8 +44,8 @@ namespace Task6_2
                 }
 
                 Console.WriteLine("\nПричина остановки: ");
-
-                if (isEqualN)
+                
+                if (!isGreaterM && !isZero)
                 {
                     Console.WriteLine("\nВ последовательности N элементов.");
                 }
@@ -67,37 +67,40 @@ namespace Task6_2
         }
    
         //Рекурсивное получение последовательности
-        static void GetSequence(double[] sequence, int i)
+        static double GetSequence(ref double[] sequence, int i)
         {
-            double currentMember;
-            try
+            if (i != 4)
             {
-                currentMember = sequence[1] / sequence[2] + Math.Abs(sequence[0]);
-            }
-            catch (DivideByZeroException e)
-            {
-                isZero = true;
-                return;
+                double temp = GetSequence(ref sequence, i - 1);
+                sequence[0] = sequence[1];
+                sequence[1] = sequence[2];
+                sequence[2] = temp;
             }
 
+            if (isZero || isGreaterM)
+            {
+                return 0;
+            }
+
+            
+            if (sequence[2] == 0)
+            {
+                isZero = true;
+                return 0;
+            }
+
+            double currentMember;
+            currentMember = sequence[1] / sequence[2] + Math.Abs(sequence[0]);
+
             Console.WriteLine(currentMember);
-            sequence[0] = sequence[1];
-            sequence[1] = sequence[2];
-            sequence[2] = currentMember;
 
             if (currentMember > mLimit)
             {
                 isGreaterM = true;
-                return;
+                return 0;
             }
 
-            if (i == n)
-            {
-                isEqualN = true;
-                return;
-            }
-
-            GetSequence(sequence, i + 1);           
+            return currentMember;           
         }
 
         //ввод вещественного числа
